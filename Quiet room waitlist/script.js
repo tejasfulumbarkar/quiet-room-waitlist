@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create and configure background music
     try {
         backgroundMusic = new Audio('voice/backmusic.mp3');
-        backgroundMusic.volume = 0.8; // Low volume (30%)
+        backgroundMusic.volume = 0.2; // Low volume (30%)
         backgroundMusic.loop = true; // Loop the music
         backgroundMusic.preload = 'auto';
         
@@ -320,10 +320,63 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Play join audio
+        // Play join audio and fade out background music
         try {
             const joinAudio = new Audio('voice/join.mp3');
             joinAudio.volume = 0.7;
+            
+            // Fade out background music if it's playing
+            if (backgroundMusic && !backgroundMusic.paused) {
+                const wasPlaying = true;
+                const originalVolume = backgroundMusic.volume;
+                const fadeDuration = 1000; // 1 second fade
+                const fadeSteps = 20;
+                const volumeStep = originalVolume / fadeSteps;
+                const stepDuration = fadeDuration / fadeSteps;
+                
+                console.log('Fading out background music');
+                
+                // Fade out
+                let currentStep = 0;
+                const fadeOut = setInterval(() => {
+                    currentStep++;
+                    backgroundMusic.volume = originalVolume - (volumeStep * currentStep);
+                    
+                    if (currentStep >= fadeSteps) {
+                        clearInterval(fadeOut);
+                        backgroundMusic.pause();
+                        backgroundMusic.volume = originalVolume; // Reset volume
+                        updateMusicStatus(false);
+                        console.log('Background music faded out');
+                        
+                        // Start fade in after 15 seconds
+                        setTimeout(() => {
+                            if (wasPlaying) {
+                                console.log('Starting background music fade in');
+                                backgroundMusic.play().then(() => {
+                                    updateMusicStatus(true);
+                                    
+                                    // Fade in
+                                    let fadeInStep = 0;
+                                    const fadeIn = setInterval(() => {
+                                        fadeInStep++;
+                                        backgroundMusic.volume = (volumeStep * fadeInStep);
+                                        
+                                        if (fadeInStep >= fadeSteps) {
+                                            clearInterval(fadeIn);
+                                            backgroundMusic.volume = originalVolume;
+                                            console.log('Background music faded in');
+                                        }
+                                    }, stepDuration);
+                                }).catch(() => {
+                                    console.log('Failed to restart background music');
+                                });
+                            }
+                                                 }, 9000); // 8 seconds
+                    }
+                }, stepDuration);
+            }
+            
             joinAudio.play().catch(() => {
                 console.log('Audio playback failed or was blocked');
             });
@@ -517,6 +570,4 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = this.style.transform.replace('translateY(-5px)', 'translateY(0)');
         });
     });
-
 }); 
-
