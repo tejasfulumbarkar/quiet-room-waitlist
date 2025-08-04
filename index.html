@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiet Room - A digital dojo for hustlers & grinders</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Quiet room logo.png" alt="Quiet Room Logo" class="logo-icon">
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Features</a>
+                <a href="#" class="nav-link">Contact</a>
+            </div>
+            <button class="login-btn">LogIn</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Music Control -->
+        <div class="music-control" id="musicControl">
+            <div class="music-icon">🎵</div>
+        </div>
+        
+
+        
+        <!-- Background Text -->
+        <div class="background-text">
+            <span class="bg-text">Quiet Room</span>
+        </div>
+        
+        <!-- Floating Tags -->
+        <div class="floating-tags">
+            <!-- Left Side Tags -->
+            <div class="floating-tag left-tag" style="--delay: 0s; --duration: 8s;">
+                <div class="tag-dot"></div>
+                <span class="tag-text">Growth Mindset</span>
+            </div>
+            <div class="floating-tag left-tag" style="--delay: 2s; --duration: 10s;">
+                <div class="tag-dot"></div>
+                <span class="tag-text">Deep Focus</span>
+            </div>
+            <div class="floating-tag left-tag" style="--delay: 4s; --duration: 9s;">
+                <div class="tag-dot"></div>
+                <span class="tag-text">Flow State</span>
+            </div>
+            
+            <!-- Right Side Tags -->
+            <div class="floating-tag right-tag" style="--delay: 1s; --duration: 12s;">
+                <div class="tag-dot"></div>
+                <span class="tag-text">AI Coach</span>
+            </div>
+            <div class="floating-tag right-tag" style="--delay: 3s; --duration: 11s;">
+                <div class="tag-dot"></div>
+                <span class="tag-text">Productivity</span>
+            </div>
+            <div class="floating-tag right-tag" style="--delay: 5s; --duration: 8.5s;">
+                <div class="tag-dot"></div>
+                <span class="tag-text">Goal Setting</span>
+            </div>
+        </div>
+        
+        <!-- Waitlist Section -->
+        <div class="waitlist-section">
+            <div class="waitlist-container">
+                <h2 class="waitlist-title">Join the Waitlist</h2>
+                <p class="waitlist-subtitle">Be the first to know when we launch</p>
+                
+                <!-- Active Status Tag -->
+                <div class="status-tag">
+                    <div class="status-dot"></div>
+                    <span class="status-text">Founders are working on this right now</span>
+                </div>
+                
+                <form class="waitlist-form" id="waitlistForm">
+                    <div class="input-group">
+                        <input 
+                            type="email" 
+                            id="emailInput" 
+                            placeholder="Enter your email" 
+                            required
+                            class="email-input"
+                        >
+                        <button type="submit" class="waitlist-btn">
+                            <span class="btn-text">Join Waitlist</span>
+                            <div class="btn-loading">
+                                <div class="spinner"></div>
+                            </div>
+                        </button>
+                        
+                        <!-- Hand Tap Animation -->
+                        <div class="hand-tap" id="handTap">
+                            <div class="hand-icon">👆</div>
+                        </div>
+                    </div>
+                    <div class="success-message" id="successMessage">
+                        <div class="success-icon">✓</div>
+                        <span>You're on the list! We'll notify you when we launch.</span>
+                    </div>
+                </form>
+                
+                <!-- Benefits Section -->
+                <div class="benefits-section">
+                    <div class="benefit-item">
+                        <span class="checkmark">✓</span>
+                        <span class="benefit-text">No spam</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="checkmark">✓</span>
+                        <span class="benefit-text">Early access</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="checkmark">✓</span>
+                        <span class="benefit-text">Unsubscribe anytime</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
