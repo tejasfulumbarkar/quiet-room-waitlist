@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create and configure background music
     try {
         backgroundMusic = new Audio('voice/backmusic.mp3');
-        backgroundMusic.volume = 0.5; // Low volume (30%)
+        backgroundMusic.volume = 0.8; // Low volume (30%)
         backgroundMusic.loop = true; // Loop the music
         backgroundMusic.preload = 'auto';
         
@@ -519,3 +519,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 }); 
+
