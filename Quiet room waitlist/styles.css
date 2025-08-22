@@ -47,8 +47,8 @@ body::before {
 }
 
 .logo-icon {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 8px;
     transition: transform 0.3s ease;
     object-fit: contain;
@@ -825,3 +825,4 @@ body::before {
     }
 
 } 
+
